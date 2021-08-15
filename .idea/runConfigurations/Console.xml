@@ -24,7 +24,7 @@
           <list>
             <DockerVolumeBindingImpl>
               <option name="containerPath" value="/app" />
-              <option name="hostPath" value="$PROJECT_DIR$/app" />
+              <option name="hostPath" value="app" />
             </DockerVolumeBindingImpl>
           </list>
         </option>
