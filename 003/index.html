@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product App</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="product">
+        <div class="product-image">
+            <img :src="image" />
+        </div>
+
+        <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="stock > 10">На складе</p>
+            <p v-else-if="stock <= 10 && stock > 0">Товар на исходе</p>
+            <p v-else>Нет в наличии</p>
+            <p v-show="onSale">Распродажа!</p>
+            <button @click = changeOnSale()>Переключить распродажу</button>
+        </div>
+
+    </div>
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+</body>
+</html>
