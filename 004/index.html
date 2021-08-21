@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product App</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="product">
+        <div class="product-image">
+            <img :src="image" />
+        </div>
+
+        <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="stock > 10">На складе</p>
+            <p v-else-if="stock <= 10 && stock > 0">Товар на исходе</p>
+            <p v-else>Нет в наличии</p>
+            <p v-show="onSale">Распродажа!</p>
+            <button @click = changeOnSale()>Переключить распродажу</button>
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+<!--            <div v-for="variant in variants">-->
+<!--                <p>{{ variant.variantColor }} + {{ variant.variantId }}</p>-->
+<!--            </div>-->
+
+<!--            <div v-for="variant in variants" :key="variant.variantId">-->
+<!--                <p>{{ variant.variantColor }}+ {{ index }}</p>-->
+<!--            </div>-->
+
+            <div v-for="(variant,index) in variants" :key="variant.variantId">
+                <p>{{ variant.variantColor }}+ {{ index }}</p>
+            </div>
+
+            <div>
+                <span v-for="n in 10">{{ n }} </span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+</body>
+</html>
